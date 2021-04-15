@@ -1,0 +1,146 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+<nav class="navbar  bg-dark">
+  <!-- Navbar content -->
+  <h4 class="text-white">I.A - Labirinto</h4>
+</nav>
+<br>
+<div class = "container text-center">
+    <h4>Labirinto Original</h4> 
+    <div class="d-flex justify-content-center">
+    
+        <table border="1">
+            {% if original != None %}
+                {% for ori in original%}
+                    <tr>
+                        {% for o in ori %}
+                            {% if o == "S"%}
+                                <td style=""><img src="{% static 'img/pessoa.png' %}"></td>
+                            {% endif %}
+                            {% if o == "*"%}
+                                <td style="background-color: yellow"></td>
+                            {% endif %}
+                            {% if o == " "%}
+                                <td style="background-color: green; width: 50px;height: 50px;"></td>
+                            {% endif %}
+                            {% if o == "X"%}
+                                <td style="background-color: green"><img src="{% static 'img/obstaculo.png' %}"></td>
+                            {% endif %}
+                            {% if o == "G"%}
+                                <td style=""><img src="{% static 'img/finish.png' %}"></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+        </table>
+            {% else %}
+                BFS Não encontrado !
+            {% endif %}
+    </div>
+<br>
+  <hr >
+<h4>Busca em Profundidade</h4>
+    <div class="d-flex justify-content-center">
+        <table border="1">
+            {% if dfs != None %}
+                {% for df in dfs%}
+                    <tr>
+                        {% for d in df %}
+                            {% if d == "S"%}
+                                <td style=""><img src="{% static 'img/pessoa.png' %}"></td>
+                            {% endif %}
+                            {% if d == "*"%}
+                                <td style="background-color: yellow"></td>
+                            {% endif %}
+                            {% if d == " "%}
+                                <td style="background-color: green; width: 50px;height: 50px;"></td>
+                            {% endif %}
+                            {% if d == "X"%}
+                                <td style="background-color: green"><img src="{% static 'img/obstaculo.png' %}"></td>
+                            {% endif %}
+                            {% if d == "G"%}
+                                <td style=""><img src="{% static 'img/finish.png' %}"></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+        </table>
+    </div>
+    <br>
+    <h5><b>Tempo de execução: </b>{{dfs_temp}}</h5>
+    <h5><b>Custo: </b>{{dfs_custo}}</h5>
+            {% else %}
+                BFS Não encontrado !
+            {% endif %}
+  <hr class="my-4">
+<br>
+<h4>Busca em Largura</h4>
+    <div class="d-flex justify-content-center">
+        <table border="1">
+            {% if bfs != None %}
+                {% for bf in bfs%}
+                    <tr>
+                        {% for b in bf %}
+                            {% if b == "S"%}
+                                <td style=""><img src="{% static 'img/pessoa.png' %}"></td>
+                            {% endif %}
+                            {% if b == "*"%}
+                                <td style="background-color: yellow"></td>
+                            {% endif %}
+                            {% if b == " "%}
+                                <td style="background-color: green; width: 50px;height: 50px;"></td>
+                            {% endif %}
+                            {% if b == "X"%}
+                                <td style="background-color: green"><img src="{% static 'img/obstaculo.png' %}"></td>
+                            {% endif %}
+                            {% if b == "G"%}
+                                <td style=""><img src="{% static 'img/finish.png' %}"></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+        </table>
+    </div>
+    <br>
+    <h5><b>Tempo de execução: {{bfs_temp}}</b></h5>
+    <h5><b>Custo: {{bfs_custo}}</b></h5>
+    {% else %}
+        DFS Não encontrado !
+    {% endif %}
+
+<br>
+<h4>Busca em A*</h4>
+    <div class="d-flex justify-content-center">
+        <table border="1">
+            {% if astar != None %}
+                {% for ast in astar%}
+                    <tr>
+                        {% for a in ast %}
+                            {% if a == "S"%}
+                                <td style=""><img src="{% static 'img/pessoa.png' %}"></td>
+                            {% endif %}
+                            {% if a == "*"%}
+                                <td style="background-color: yellow"></td>
+                            {% endif %}
+                            {% if a == " "%}
+                                <td style="background-color: green; width: 50px;height: 50px;"></td>
+                            {% endif %}
+                            {% if a == "X"%}
+                                <td style="background-color: green"><img src="{% static 'img/obstaculo.png' %}"></td>
+                            {% endif %}
+                            {% if a == "G"%}
+                                <td style=""><img src="{% static 'img/finish.png' %}"></td>
+                            {% endif %}
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+        </table>
+    </div>
+    <br>
+    <h5><b>Tempo de execução: {{astar_temp}}</b></h5>
+    <h5><b>Custo: {{astar_custo}}</b></h5>
+    {% else %}
+        ASTAR Não encontrado !
+    {% endif %}
+
+</div>
